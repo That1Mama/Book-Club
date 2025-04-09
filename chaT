@@ -1,0 +1,50 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+const reviews = [
+  {
+    title: "The Midnight Library",
+    author: "Matt Haig",
+    review:
+      "A thought-provoking read that explores the infinite possibilities of life through a magical library."
+  },
+  {
+    title: "Atomic Habits",
+    author: "James Clear",
+    review:
+      "A practical guide on building better habits and breaking bad ones with small, consistent changes."
+  },
+  {
+    title: "Circe",
+    author: "Madeline Miller",
+    review:
+      "A beautifully written feminist retelling of the Greek mythological figure Circe."
+  }
+];
+
+export default function BookReviewBlog() {
+  return (
+    <div className="max-w-4xl mx-auto p-6">
+      <h1 className="text-4xl font-bold mb-6 text-center">Book Review Blog</h1>
+
+      <div className="mb-8">
+        <Input placeholder="Search for a book..." className="mb-4" />
+        <Button>Search</Button>
+      </div>
+
+      <div className="grid gap-6">
+        {reviews.map((book, index) => (
+          <Card key={index} className="shadow-md p-4">
+            <CardContent>
+              <h2 className="text-2xl font-semibold">{book.title}</h2>
+              <p className="text-sm text-gray-600">by {book.author}</p>
+              <p className="mt-4">{book.review}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}
